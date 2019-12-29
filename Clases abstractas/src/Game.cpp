@@ -69,6 +69,8 @@ void Game::eventos()
     while(SDL_PollEvent(&event))
     {
 
+        //Prueba para git
+
        switch(event.type)
         {
             case SDL_QUIT:
