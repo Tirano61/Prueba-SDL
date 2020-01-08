@@ -1,32 +1,25 @@
 #ifndef NAVE_H
 #define NAVE_H
-#include"Personaje.h"
-#include<SDL2/SDL.h>
+#include "GameObjet.h"
+#include<SDL.h>
 #include "Bala.h"
+void upDate();
 
 
-
-class Nave : public Personaje{
+class Nave : public GameObjet
+{
     public:
-        Nave(SDL_Renderer *renderer, Bala *bala);
+        Nave(SDL_Renderer* renderer);
         virtual ~Nave();
-        void tamagno(SDL_Rect rect);
-        void loadImage();
+
         void upDate();
-        SDL_Texture *loadDisparo();
+        void render();
 
-
-        SDL_Rect naveRect,balaRect;
-        SDL_Rect disparoRect;
-        Bala *_bala;
     protected:
 
     private:
+    SDL_Texture* objTexture;
 
-        SDL_Texture *_disparoTexture;
-        SDL_Texture *_texture;
-        SDL_Renderer *_renderer = nullptr;
-        int _x,_y,_w,_h;
 };
 
 #endif // NAVE_H

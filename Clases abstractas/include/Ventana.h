@@ -1,6 +1,6 @@
 #ifndef VENTANA_H
 #define VENTANA_H
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 class Ventana
 {

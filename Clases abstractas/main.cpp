@@ -1,7 +1,7 @@
 #include<iostream>
 #include"Nave.h"
 #include"Asteride.h"
-#include <SDL2/SDL.h>
+#include <SDL.h>
 #include"Control.h"
 #include"Game.h"
 

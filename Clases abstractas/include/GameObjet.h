@@ -1,18 +1,16 @@
 #ifndef GAMEOBJET_H
 #define GAMEOBJET_H
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 class GameObjet
 {
     public:
-        GameObjet(const char* file, SDL_Renderer* renderer, int xpos, int ypos, int tipo, int enemigo);
+        GameObjet(SDL_Renderer* renderer);
         virtual ~GameObjet();
 
-        void upDate();
-        void render();
+        virtual void upDate();
+        virtual void render();
         SDL_Rect srcRect, desRect;
-
-    private:
 
         int xpos,ypos;
 

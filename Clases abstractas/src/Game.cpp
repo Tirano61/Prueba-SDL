@@ -3,6 +3,10 @@
 #include "TextureManager.h"
 #include "GameObjet.h"
 #include <list>
+#include "Asteride.h"
+#include "Nave.h"
+#include "Disparo.h"
+#include "FabricaObjetos.h"
 
 using namespace std;
 
@@ -13,6 +17,7 @@ GameObjet* nave;
 list<GameObjet*> listaBalas;
 list<GameObjet*> listEnemigos;
 list<GameObjet*> listEnemigos2;
+//list<GameObjet*>
 GameObjet* enemigo;
 int cantidad = 0;
 Game::Game()
@@ -48,8 +53,7 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height)
     {
         running = false;
     }
-    nave = new GameObjet("img/nave1.png", renderer, 400, 400, 0, 0);
-
+    nave =  FabricaObjetos::crearObjetos(FabricaObjetos::NAVE, renderer);
 
 
 }
@@ -57,12 +61,13 @@ void Game::crearEnemigos()
 {
     if(listEnemigos.size() < 9)
     {
-        listEnemigos.push_back(new GameObjet("img/plato.png", renderer, 300, 0, 1, 1));
+        listEnemigos.push_back(FabricaObjetos::crearObjetos(FabricaObjetos::ENEMIGO,renderer));
     }
     if(listEnemigos2.size() < 9)
     {
-        listEnemigos2.push_back(new GameObjet("img/plato.png", renderer, 400, 0, 1, 2));
+        listEnemigos.push_back(FabricaObjetos::crearObjetos(FabricaObjetos::ENEMIGO,renderer));
     }
+
 }
 void Game::eventos()
 {
@@ -81,7 +86,8 @@ void Game::eventos()
                 {
                     if(listaBalas.size() <= 10)
                     {
-                        listaBalas.push_back(new GameObjet("img/bala.png", renderer, nave->desRect.x + 25,nave->desRect.y - 10, 2, 0));
+                        listaBalas.push_back(new Disparo(renderer, nave->desRect.x + 25,nave->desRect.y - 10));
+                        std::cout << "Se agrego un aBala A la LISta \n";
                     }
                 }
                 if(keys[SDL_SCANCODE_UP])
@@ -122,17 +128,19 @@ void Game::upDate()
 
     nave->upDate();
 
-
+    int numero = 1;
     for (list<GameObjet*>::iterator it=listaBalas.begin(); it != listaBalas.end(); ++it)
     {
         GameObjet* temp = *it;
         temp->upDate();
-
+        std::cout << "Se HIZO UPDATE A UNA BALA "  << numero << "\n";
         if(temp->desRect.y <= 0)
         {
              listaBalas.remove(*it);
+             std::cout << "Se remobio BALA  \n";
              break;
         }
+        numero ++;
     }
 
     if(contador == 25)
@@ -154,7 +162,9 @@ void Game::upDate()
                 std::cout << "Choco con enemigo \n ";
                 break;
             }
-        }else{
+        }
+        else
+        {
             tempEnemigo->upDate();
         }
 
@@ -170,13 +180,32 @@ void Game::upDate()
     for (list<GameObjet*>::iterator itEnemigo2=listEnemigos2.begin(); itEnemigo2 != listEnemigos2.end(); ++itEnemigo2)
     {
         GameObjet* tempEnemigo2 = *itEnemigo2;
-        tempEnemigo2->upDate();
+
+        if((tempEnemigo2->desRect.y + 29) >= nave->desRect.y)
+        {
+            if(((tempEnemigo2->desRect.x +70) < (nave->desRect.x)) || ((tempEnemigo2->desRect.x) > (nave->desRect.x + 60)))
+            {
+                tempEnemigo2->upDate();
+            }
+            else
+            {
+                listEnemigos2.remove(*itEnemigo2);
+                break;
+            }
+
+        }
+        else
+        {
+            tempEnemigo2->upDate();
+        }
+
         if(tempEnemigo2->desRect.y <= -10 || tempEnemigo2->desRect.x >= 800)
         {
-             listEnemigos2.remove(*itEnemigo2);
-             std::cout << "Enemigo 2 eliminado \n ";
-             break;
+            listEnemigos2.remove(*itEnemigo2);
+            std::cout << "Enemigo 2 eliminado \n ";
+            break;
         }
+
     }
 
     contador ++;
@@ -190,6 +219,7 @@ void Game::render()
 
    for (list<GameObjet*>::iterator it=listaBalas.begin(); it != listaBalas.end(); ++it){
             (*it)->render();
+            std::cout << "Se RENDERISO UNA BALA DE LA LISTA \n";
     }
     for (list<GameObjet*>::iterator itEnemigo=listEnemigos.begin(); itEnemigo != listEnemigos.end(); ++itEnemigo)
     {

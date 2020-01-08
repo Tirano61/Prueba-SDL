@@ -1,7 +1,7 @@
 #ifndef BALA_H
 #define BALA_H
 #include "Personaje.h"
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 
 

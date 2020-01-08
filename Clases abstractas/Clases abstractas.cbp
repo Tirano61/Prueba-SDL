@@ -32,14 +32,16 @@
 		</Build>
 		<Compiler>
 			<Add option="-Wall" />
-			<Add directory="../SDL2/include" />
+			<Add directory="D:/PRUEBAS SDL/SDL2/include" />
 		</Compiler>
 		<Linker>
-			<Add option="-lmingw32 -lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf" />
-			<Add directory="../SDL2/lib" />
+			<Add option="-lSDL2main -lSDL2 -lSDL2_image -lSDL2_ttf" />
+			<Add directory="D:/PRUEBAS SDL/SDL2/lib" />
 		</Linker>
 		<Unit filename="include/Asteride.h" />
 		<Unit filename="include/Control.h" />
+		<Unit filename="include/Disparo.h" />
+		<Unit filename="include/FabricaObjetos.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameObjet.h" />
 		<Unit filename="include/Nave.h" />
@@ -49,6 +51,8 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Asteride.cpp" />
 		<Unit filename="src/Control.cpp" />
+		<Unit filename="src/Disparo.cpp" />
+		<Unit filename="src/FabricaObjetos.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameObjet.cpp" />
 		<Unit filename="src/Nave.cpp" />

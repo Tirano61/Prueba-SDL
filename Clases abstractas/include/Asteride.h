@@ -1,24 +1,29 @@
 #ifndef ASTERIDE_H
 #define ASTERIDE_H
-#include<SDL2/SDL.h>
+#include<SDL.h>
 #include"Personaje.h"
-#include<SDL2/SDL_image.h>
+#include<SDL_image.h>
 #include<string>
+#include<random>
+#include "GameObjet.h"
 
 
 
-class Asteride : public Personaje{
+class Asteride : public GameObjet
+{
     public:
-        Asteride();
+        Asteride(SDL_Renderer* renderer, int tipo) ;
         virtual ~Asteride();
-        void tamagno(SDL_Rect rect);
-        void loadImage();
+
+        void secuencia();
+        void upDate();
+        void render();
+
     protected:
 
     private:
-        SDL_Rect asteroideRect;
-        SDL_Texture *_texture;
-        int _x,_y,_w,_h;
+    SDL_Texture* objTexture;
+    int _tipo = 0;
 };
 
 #endif // ASTERIDE_H

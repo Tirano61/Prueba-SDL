@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
-#include <SDL2/SDL.h>
-#include <SDL2/SDL_image.h>
+#include <SDL.h>
+#include <SDL_image.h>
 
 
 class Game
@@ -18,13 +18,14 @@ class Game
         void crearEnemigos();
 
         bool isRunning();
+        SDL_Renderer* renderer;
     protected:
 
     private:
         int cnt = 0;
         bool running;
         SDL_Window* ventana;
-        SDL_Renderer* renderer;
+
         const Uint8 *keys =  SDL_GetKeyboardState(NULL);
         SDL_Event event;
 };
