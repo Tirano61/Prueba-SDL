@@ -41,6 +41,7 @@
 		<Unit filename="include/Asteride.h" />
 		<Unit filename="include/Control.h" />
 		<Unit filename="include/Disparo.h" />
+		<Unit filename="include/Enemigo2.h" />
 		<Unit filename="include/FabricaObjetos.h" />
 		<Unit filename="include/Game.h" />
 		<Unit filename="include/GameObjet.h" />
@@ -52,6 +53,7 @@
 		<Unit filename="src/Asteride.cpp" />
 		<Unit filename="src/Control.cpp" />
 		<Unit filename="src/Disparo.cpp" />
+		<Unit filename="src/Enemigo2.cpp" />
 		<Unit filename="src/FabricaObjetos.cpp" />
 		<Unit filename="src/Game.cpp" />
 		<Unit filename="src/GameObjet.cpp" />

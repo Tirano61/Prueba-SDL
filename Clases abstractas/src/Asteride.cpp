@@ -39,7 +39,7 @@ void Asteride::upDate()
 {
     if(_tipo == 1)
     {
-       srcRect.h = 29;
+        srcRect.h = 29;
         srcRect.w = 70;
         srcRect.x = 0;
         srcRect.y = 0;
@@ -69,7 +69,7 @@ void Asteride::upDate()
         desRect.h = 29;
         if(desRect.y == 400){
            movimiento = 1;
-        }else if(desRect.y <= -30 || desRect.x >= 800){
+        }else if(desRect.y <= -1 || desRect.x >= 800){
            movimiento = 2;
         }
         if(movimiento == 0){
@@ -79,6 +79,12 @@ void Asteride::upDate()
             desRect.y -= velEnemigo;
             desRect.x += velEnemigo;
         }else if(movimiento == 2){
+            if(!desRect.x <= 400){
+                desRect.y += velEnemigo;
+                desRect.x -= velEnemigo;
+            }else{
+                desRect.x -= velEnemigo;
+            }
 
         }
     }

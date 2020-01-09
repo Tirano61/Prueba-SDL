@@ -4,6 +4,7 @@
 #include "Disparo.h"
 #include "Asteride.h"
 #include "Game.h"
+#include "Enemigo2.h"
 
 int FabricaObjetos::tipoEnemigo = 0;
 FabricaObjetos::FabricaObjetos()
@@ -39,7 +40,10 @@ GameObjet* FabricaObjetos::crearObjetos(int tipo, SDL_Renderer* _renderer)
                 tipoEnemigo = 0;
             }
             break;
-    }
+        case ENEMIGO1:
+            objeto = new Enemigo2(_renderer);
+            break;
+            }
 
     return objeto;
 }

@@ -2076,7 +2076,7 @@
 	<SDL.h>
 	<SDL_image.h>
 
-1578508587 source:d:\pruebas sdl\sdl movimientos\prueba-sdl\clases abstractas\src\asteride.cpp
+1578586403 source:d:\pruebas sdl\sdl movimientos\prueba-sdl\clases abstractas\src\asteride.cpp
 	"Asteride.h"
 	<iostream>
 	<SDL.h>
@@ -2091,7 +2091,7 @@
 	<iostream>
 	"Bala.h"
 
-1578511177 source:d:\pruebas sdl\sdl movimientos\prueba-sdl\clases abstractas\src\game.cpp
+1578599794 source:d:\pruebas sdl\sdl movimientos\prueba-sdl\clases abstractas\src\game.cpp
 	"Game.h"
 	<iostream>
 	"TextureManager.h"
@@ -2134,7 +2134,7 @@
 	"Ventana.h"
 	<iostream>
 
-1578510419 source:d:\pruebas sdl\sdl movimientos\prueba-sdl\clases abstractas\src\disparo.cpp
+1578511510 source:d:\pruebas sdl\sdl movimientos\prueba-sdl\clases abstractas\src\disparo.cpp
 	"Disparo.h"
 	"TextureManager.h"
 	<SDL.h>
@@ -2144,14 +2144,25 @@
 	<SDL.h>
 	"GameObjet.h"
 
-1578509997 source:d:\pruebas sdl\sdl movimientos\prueba-sdl\clases abstractas\src\fabricaobjetos.cpp
+1578590471 source:d:\pruebas sdl\sdl movimientos\prueba-sdl\clases abstractas\src\fabricaobjetos.cpp
 	"FabricaObjetos.h"
 	"GameObjet.h"
 	"Nave.h"
 	"Disparo.h"
 	"Asteride.h"
 	"Game.h"
+	"Enemigo2.h"
 
-1578509716 d:\pruebas sdl\sdl movimientos\prueba-sdl\clases abstractas\include\fabricaobjetos.h
+1578590407 d:\pruebas sdl\sdl movimientos\prueba-sdl\clases abstractas\include\fabricaobjetos.h
+	"GameObjet.h"
+
+1578599311 source:d:\pruebas sdl\sdl movimientos\prueba-sdl\clases abstractas\src\enemigo2.cpp
+	"Enemigo2.h"
+	"math.h"
+	"GameObjet.h"
+	<SDL.h>
+	"TextureManager.h"
+
+1578590578 d:\pruebas sdl\sdl movimientos\prueba-sdl\clases abstractas\include\enemigo2.h
 	"GameObjet.h"
 

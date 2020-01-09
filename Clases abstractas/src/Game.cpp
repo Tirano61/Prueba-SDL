@@ -57,16 +57,44 @@ void Game::init(const char* title, int xpos, int ypos, int width, int height)
 
 
 }
+
+int contador = 0;
+int contarEnemigos = 0;
+int contarEnemigos1 = 0;
+int etapa = 0;
 void Game::crearEnemigos()
 {
-    if(listEnemigos.size() < 9)
+    if(etapa == 0)
     {
-        listEnemigos.push_back(FabricaObjetos::crearObjetos(FabricaObjetos::ENEMIGO,renderer));
+        if(contarEnemigos < 9)
+        {
+            listEnemigos.push_back(FabricaObjetos::crearObjetos(FabricaObjetos::ENEMIGO,renderer));
+            contarEnemigos ++;
+
+        }
+        if(contarEnemigos1 < 9)
+        {
+            listEnemigos.push_back(FabricaObjetos::crearObjetos(FabricaObjetos::ENEMIGO,renderer));
+            contarEnemigos1 ++;
+        }
+        if(listEnemigos.size() == 0)
+        {
+            contador = -50;
+            etapa ++;
+            contarEnemigos = 0;
+            contarEnemigos1 = 0;
+        }
     }
-    if(listEnemigos2.size() < 9)
+    if(etapa == 1)
     {
-        listEnemigos.push_back(FabricaObjetos::crearObjetos(FabricaObjetos::ENEMIGO,renderer));
+        if(contarEnemigos < 9)
+        {
+            listEnemigos.push_back(FabricaObjetos::crearObjetos(FabricaObjetos::ENEMIGO1,renderer));
+            contarEnemigos ++;
+
+        }
     }
+
 
 }
 void Game::eventos()
@@ -122,7 +150,7 @@ void Game::eventos()
     }
 
 }
-int contador = 0;
+
 void Game::upDate()
 {
 
@@ -152,7 +180,7 @@ void Game::upDate()
     for (list<GameObjet*>::iterator itEnemigo=listEnemigos.begin(); itEnemigo != listEnemigos.end(); ++itEnemigo)
     {
         GameObjet* tempEnemigo = *itEnemigo;
-        if((tempEnemigo->desRect.y + 29) >= nave->desRect.y)
+        if(((tempEnemigo->desRect.y + 29) >= nave->desRect.y) && (tempEnemigo->desRect.y + 29) <= (nave->desRect.y + 70))
         {
             if(((tempEnemigo->desRect.x) > (nave->desRect.x + 60)) || ((tempEnemigo->desRect.x + 70) < (nave->desRect.x)))
             {
