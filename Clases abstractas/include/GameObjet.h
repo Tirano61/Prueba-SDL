@@ -10,7 +10,12 @@ class GameObjet
 
         virtual void upDate();
         virtual void render();
+        virtual void setDestruido(int destruido);
+        virtual int getDestruido();
+
         SDL_Rect srcRect, desRect;
+
+        virtual int getTipo();
 
         int xpos,ypos;
 
@@ -23,6 +28,7 @@ class GameObjet
         int _tipo;
         int movimiento = 0;
         int _enemigo;
+        int _destruido;
 
 
 

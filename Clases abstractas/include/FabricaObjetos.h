@@ -15,7 +15,9 @@ class FabricaObjetos
 
         static int tipoEnemigo;
 
-        static GameObjet* crearObjetos(int tipo,SDL_Renderer* renderer);
+
+
+        static GameObjet* crearObjetos(int tipo,SDL_Renderer* renderer,int x,int y);
 
 
     protected:

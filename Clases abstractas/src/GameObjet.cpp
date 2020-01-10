@@ -25,3 +25,15 @@ void GameObjet::render()
 {
     //SDL_RenderCopy(renderer,objTexture, &srcRect, &desRect);
 }
+int GameObjet::getTipo()
+{
+
+}
+void GameObjet::setDestruido(int destruido)
+{
+
+}
+int GameObjet::getDestruido()
+{
+
+}

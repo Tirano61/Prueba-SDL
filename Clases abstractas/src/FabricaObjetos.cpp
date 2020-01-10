@@ -17,33 +17,35 @@ FabricaObjetos::~FabricaObjetos()
     //dtor
 }
 
-GameObjet* FabricaObjetos::crearObjetos(int tipo, SDL_Renderer* _renderer)
+GameObjet* FabricaObjetos::crearObjetos(int tipo, SDL_Renderer* _renderer,int x,int y)
 {
 
     GameObjet* objeto = nullptr;
     switch(tipo)
     {
         case NAVE:
-            objeto = new Nave(_renderer);
+            objeto = new Nave(tipo, _renderer);
             break;
         case BALA:
+            objeto = new Disparo(tipo,_renderer,x,y);
             break;
         case ENEMIGO:
             if (tipoEnemigo == 0)
             {
                 tipoEnemigo = 1;
-                objeto = new Asteride(_renderer, 1);
+                objeto = new Asteride(tipo, _renderer, 1);
             }
             else if(tipoEnemigo == 1)
             {
-                objeto = new Asteride(_renderer, 2);
+                objeto = new Asteride(tipo,_renderer, 2);
                 tipoEnemigo = 0;
             }
             break;
         case ENEMIGO1:
-            objeto = new Enemigo2(_renderer);
+            objeto = new Enemigo2(tipo,_renderer);
             break;
             }
 
     return objeto;
 }
+

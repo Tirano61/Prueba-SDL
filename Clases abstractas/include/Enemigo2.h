@@ -5,15 +5,21 @@
 class Enemigo2 : public GameObjet
 {
     public:
-        Enemigo2(SDL_Renderer* renderer);
+        Enemigo2(int tipo, SDL_Renderer* renderer);
         virtual ~Enemigo2();
 
         void upDate();
         void render();
+        int getTipo();
+        void setDestruido(int destruido);
+        int getDestruido();
+
 
     protected:
 
     private:
+
+        int _tipo;
 };
 
 #endif // ENEMIGO2_H

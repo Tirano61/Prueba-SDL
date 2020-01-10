@@ -8,11 +8,12 @@
 #include "TextureManager.h"
 
 
-Nave::Nave(SDL_Renderer* renderer)
+Nave::Nave(int tipo, SDL_Renderer* renderer)
 : GameObjet(renderer)
 {
+    _destruido = 0;
+    _tipo = tipo;
     objTexture = TextureManager::loadTexture("img/nave1.png",renderer);
-
 
     desRect.x = xpos = 400;
     desRect.y = ypos = 500;
@@ -22,6 +23,12 @@ Nave::~Nave()
 {
     SDL_DestroyTexture(objTexture);
 }
+
+int Nave::getTipo()
+{
+    return _tipo;
+}
+
 void Nave::upDate()
 {
     srcRect.h = 65;
@@ -41,3 +48,12 @@ void Nave::render()
     SDL_RenderCopy(_renderer,objTexture, &srcRect, &desRect);
 }
 
+void Nave::setDestruido(int destruido)
+{
+    _destruido = destruido;
+}
+
+int Nave::getDestruido()
+{
+    return _destruido;
+}

@@ -6,9 +6,10 @@
 
 
 
-Enemigo2::Enemigo2(SDL_Renderer* renderer) :
+Enemigo2::Enemigo2(int tipo, SDL_Renderer* renderer) :
     GameObjet(renderer)
 {
+    _tipo = tipo;
     objTexture = TextureManager::loadTexture("img/plato2.png", renderer);
 
     desRect.x = 300;
@@ -19,6 +20,11 @@ Enemigo2::Enemigo2(SDL_Renderer* renderer) :
 Enemigo2::~Enemigo2()
 {
     //dtor
+}
+
+int Enemigo2::getTipo()
+{
+    return _tipo;
 }
 
 void Enemigo2::upDate()
@@ -56,4 +62,14 @@ void Enemigo2::upDate()
 void Enemigo2::render()
 {
     SDL_RenderCopy(_renderer,objTexture, &srcRect, &desRect);
+}
+
+void Enemigo2::setDestruido(int destruido)
+{
+    _destruido = destruido;
+}
+
+int Enemigo2::getDestruido()
+{
+    return _destruido;
 }

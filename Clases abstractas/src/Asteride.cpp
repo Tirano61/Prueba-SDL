@@ -7,12 +7,15 @@
 #include "TextureManager.h"
 
 
-Asteride::Asteride(SDL_Renderer* renderer, int tipo)
+Asteride::Asteride(int tipo, SDL_Renderer* renderer, int enemigo)
 : GameObjet(renderer)
 {
+    _destruido = 0;
     _tipo = tipo;
+    _enemigo = enemigo;
     objTexture = TextureManager::loadTexture("img/plato.png", renderer);
-    if(_tipo == 1)
+    objDestruido = TextureManager::loadTexture("img/explosion22.png", renderer);
+    if(_enemigo == 1)
     {
         desRect.x = 300;
         desRect.y = 0;
@@ -28,6 +31,12 @@ Asteride::Asteride(SDL_Renderer* renderer, int tipo)
 Asteride::~Asteride()
 {
     SDL_DestroyTexture(objTexture);
+    SDL_DestroyTexture(objDestruido);
+}
+
+int Asteride::getTipo()
+{
+   return _tipo;
 }
 
 void Asteride::secuencia()
@@ -37,15 +46,27 @@ void Asteride::secuencia()
 
 void Asteride::upDate()
 {
-    if(_tipo == 1)
+    if(_enemigo == 1)
     {
-        srcRect.h = 29;
-        srcRect.w = 70;
-        srcRect.x = 0;
-        srcRect.y = 0;
+        if(_destruido > 0)
+        {
+            srcRect.h = 53;
+            srcRect.w = 70;
+            srcRect.x = 0;
+            srcRect.y = 0;
 
-        desRect.w = 70;
-        desRect.h = 29;
+            desRect.w = 70;
+            desRect.h = 53;
+        }else{
+            srcRect.h = 29;
+            srcRect.w = 70;
+            srcRect.x = 0;
+            srcRect.y = 0;
+
+            desRect.w = 70;
+            desRect.h = 29;
+        }
+
         if(desRect.y == 400){
            movimiento = 1;
         }else if(desRect.y <= -30 || desRect.x <= -30){
@@ -58,15 +79,29 @@ void Asteride::upDate()
             desRect.x -= velEnemigo;
         }else if(movimiento == 2){}
     }
-    else if(_tipo == 2)
+    else if(_enemigo == 2)
     {
-        srcRect.h = 29;
-        srcRect.w = 70;
-        srcRect.x = 0;
-        srcRect.y = 0;
+        if(_destruido > 0)
+        {
+            srcRect.h = 53;
+            srcRect.w = 70;
+            srcRect.x = 0;
+            srcRect.y = 0;
 
-        desRect.w = 70;
-        desRect.h = 29;
+            desRect.w = 70;
+            desRect.h = 53;
+        }
+        else{
+
+            srcRect.h = 29;
+            srcRect.w = 70;
+            srcRect.x = 0;
+            srcRect.y = 0;
+
+            desRect.w = 70;
+            desRect.h = 29;
+        }
+
         if(desRect.y == 400){
            movimiento = 1;
         }else if(desRect.y <= -1 || desRect.x >= 800){
@@ -92,5 +127,22 @@ void Asteride::upDate()
 
 void Asteride::render()
 {
-    SDL_RenderCopy(_renderer,objTexture, &srcRect, &desRect);
+    if(_destruido)
+    {
+        SDL_RenderCopy(_renderer,objDestruido, &srcRect, &desRect);
+        _destruido ++;
+    }
+    else
+    {
+       SDL_RenderCopy(_renderer,objTexture, &srcRect, &desRect);
+    }
+
+}
+void Asteride::setDestruido(int destruido)
+{
+    _destruido = destruido;
+}
+int Asteride::getDestruido()
+{
+    return _destruido;
 }
