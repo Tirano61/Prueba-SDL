@@ -1,6 +1,6 @@
 #include "Disparo.h"
 #include "TextureManager.h"
-#include <SDL.h>
+#include <SDL2/SDL.h>
 #include "GameObjet.h"
 
 Disparo::Disparo(int tipo, SDL_Renderer* renderer, int xpos, int ypos)
@@ -9,7 +9,8 @@ Disparo::Disparo(int tipo, SDL_Renderer* renderer, int xpos, int ypos)
     _destruido = false;
     _tipo = tipo;
     objTexture = TextureManager::loadTexture("img/bala.png",renderer);
-
+    objTexture = TextureManager::loadTexture("img/explosion2.png",renderer);
+    objTexture = TextureManager::loadTexture("img/explosion2.png",renderer);
     desRect.x = xpos;
     desRect.y = ypos;
 }
@@ -28,16 +29,18 @@ void Disparo::upDate()
 {
     srcRect.h = 33;
     srcRect.w = 16;
-    srcRect.x = 0;
-    srcRect.y = 0;
     desRect.w = 7;
     desRect.h = 12;
+
+    srcRect.x = 0;
+    srcRect.y = 0;
+
     desRect.y -= velBala;
 }
 
 void Disparo::render()
 {
-   SDL_RenderCopy(_renderer,objTexture, &srcRect, &desRect);
+    SDL_RenderCopy(_renderer,objTexture, &srcRect, &desRect);
 }
 
 void Disparo::setDestruido(int destruido)

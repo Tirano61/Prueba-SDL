@@ -1,18 +1,22 @@
 #ifndef VENTANA_H
 #define VENTANA_H
-#include <SDL.h>
+#include<SDL2/SDL.h>
+#include "GameObjet.h"
 
-class Ventana
+
+class Ventana : public GameObjet
 {
     public:
-        Ventana();
+        Ventana(SDL_Renderer* renderer);
         virtual ~Ventana();
+        void upDate();
+        void render();
 
     protected:
 
     private:
 
-        SDL_Window *_window;
+        SDL_Texture* objTexture;
 
 };
 

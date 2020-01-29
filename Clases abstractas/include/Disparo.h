@@ -1,6 +1,6 @@
 #ifndef DISPARO_H
 #define DISPARO_H
-#include <SDL.h>
+#include<SDL2/SDL.h>
 #include "GameObjet.h"
 
 class Disparo : public GameObjet
@@ -17,6 +17,8 @@ class Disparo : public GameObjet
 
     private:
         SDL_Texture* objTexture;
+        SDL_Texture* objDestruido;
+        SDL_Texture* objExplosion;
         int _tipo;
 
 };

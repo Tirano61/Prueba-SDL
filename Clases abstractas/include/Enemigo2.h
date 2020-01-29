@@ -18,7 +18,9 @@ class Enemigo2 : public GameObjet
     protected:
 
     private:
-
+        SDL_Texture* objTexture;
+        SDL_Texture* objDestruido;
+        SDL_Texture* objExplosion;
         int _tipo;
 };
 

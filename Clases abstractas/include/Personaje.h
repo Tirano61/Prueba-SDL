@@ -1,6 +1,6 @@
 #ifndef PERSONAJE_H
 #define PERSONAJE_H
-#include<SDL.h>
+#include<SDL2/SDL.h>
 #include<string>
 #include"Ventana.h"
 #include<iostream>
