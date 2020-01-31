@@ -2275,7 +2275,7 @@
 	<SDL2/SDL_image.h>
 	<iostream>
 
-1579695115 source:d:\codeblocks sdl\prueba sdl\clases abstractas\src\ventana.cpp
+1580431772 source:d:\codeblocks sdl\prueba sdl\clases abstractas\src\ventana.cpp
 	"Ventana.h"
 	<iostream>
 	"GameObjet.h"
@@ -2699,4 +2699,9 @@
 1579527153 d:\codeblocks sdl\prueba sdl\clases abstractas\include\movimientoenemigo.h
 	"GameObjet.h"
 	"Movimiento.h"
+
+1579811885 source:d:\codeblocks sdl\prueba sdl\clases abstractas\src\enemigo3.cpp
+	"Enemigo3.h"
+
+1579811885 d:\codeblocks sdl\prueba sdl\clases abstractas\include\enemigo3.h
 

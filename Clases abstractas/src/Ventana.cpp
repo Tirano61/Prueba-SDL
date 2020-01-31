@@ -10,11 +10,11 @@
 
 Ventana::Ventana(SDL_Renderer* renderer) : GameObjet(renderer)
 {
-    objTexture = TextureManager::loadTexture("img/mapa2.png",renderer);
+    objTexture = TextureManager::loadTexture("img/fondo.png",renderer);
     srcRect.w = 800;
-    srcRect.h = 300;
+    srcRect.h = 400;
     srcRect.x = 0;
-    srcRect.y = 5700;
+    srcRect.y = 8400;
 }
 
 Ventana::~Ventana()
@@ -26,7 +26,7 @@ void Ventana::upDate()
 {
     if(srcRect.y <= 0)
     {
-        srcRect.y = 5700;
+        srcRect.y = 8400;
     }
     srcRect.y -= velEnemigo*0.02f;
     //std::cout << "Punto y : " << srcRect.y << "\n";
