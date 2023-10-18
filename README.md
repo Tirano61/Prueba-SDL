@@ -1,2 +1,2 @@
 # Prueba-SDL
-Prueba SDL2
+Prueba  con la librería SDL2,haciendo un juego de naves.
